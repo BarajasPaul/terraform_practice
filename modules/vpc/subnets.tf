@@ -6,7 +6,7 @@ resource "aws_subnet" "public_subnets" {
  cidr_block        = element(local.public_subnet_cidrs, count.index)
  availability_zone = element(local.azs, count.index)
  tags = {
-   name = "public-subnet-${element(var.azs, count.index)}-${count.index + 1}"
+   name = "public-subnet-${element(local.azs, count.index)}-${count.index + 1}"
    env = "${var.environment}"
  }
 }
